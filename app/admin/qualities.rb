@@ -5,7 +5,7 @@ ActiveAdmin.register Quality do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :qualityGrade
+  permit_params :qualityGrade
   #
   # or
   #
