@@ -1,0 +1,2 @@
+class Guntype < ApplicationRecord
+end

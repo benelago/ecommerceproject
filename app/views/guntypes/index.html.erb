@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Guntypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gunshottype</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guntypes.each do |guntype| %>
+      <tr>
+        <td><%= guntype.gunshottype %></td>
+        <td><%= link_to 'Show', guntype %></td>
+        <td><%= link_to 'Edit', edit_guntype_path(guntype) %></td>
+        <td><%= link_to 'Destroy', guntype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guntype', new_guntype_path %>
