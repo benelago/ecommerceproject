@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <%= link_to (Page.find_by permalink: 'about').title, permalink_path("about")%>
+    <%= link_to 'Home', root_path %> \ 
+    <%= link_to (Page.find_by permalink: 'about').title, permalink_path("about")%> \ 
     <%= link_to (Page.find_by permalink: 'contact').title, permalink_path("contact")%>
     <%= yield %>
   </body>
