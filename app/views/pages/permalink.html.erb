@@ -1,0 +1,5 @@
+<% if @page.permalink == "about_us" %>
+  <%= render 'about', page: @page %>
+  <% else %>
+  <%= render 'contact', page: @page %>
+<% end %>
