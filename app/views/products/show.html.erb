@@ -17,12 +17,12 @@
 
 <p>
   <strong>Guntype:</strong>
-  <%= @product.guntype_id %>
+  <%= @product.guntype.name %>
 </p>
 
 <p>
   <strong>Quality:</strong>
-  <%= @product.quality_id %>
+  <%= @product.quality.name %>
 </p>
 
 <%= link_to 'Back', products_path %>
