@@ -39,9 +39,9 @@ def gungeon
     unparsed_page = HTTParty.get(url)
     parsed_page = Nokogiri::HTML(unparsed_page)
     guns = parsed_page.css('section:first-of-type').css('.sp-text')
-  
+    
     list = []
-  
+    
     guns.each do |gun|
       x = {
         name: gun.css('h3').text,
@@ -52,14 +52,34 @@ def gungeon
         list << x
     end
     list
-  end
-  
-  test = gungeon
+end
 
-pp test
+guns = gungeon
 
-test = ('A'..'F').to_a.sample
+randomprice = rand(10..999)
 
-puts "#{test}"
+guns.each 
 
-puts "Created #{Province.count} provinces"
+
+
+
+
+
+
+shoottype = ["Automatic","Beam","Burst","Charged","Semiautomatic","Varies"]
+
+shoottype.each do |shoot|
+  Guntype.create(name: shoot)
+end
+
+
+qualitygrades = ('A'..'F').to_a
+
+qualitygrades.each do |grade|
+  Quality.create(name: grade)
+end
+
+
+
+puts "Created #{Quality.count}"
+puts "Created #{Guntype.count}"
