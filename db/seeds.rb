@@ -10,7 +10,6 @@ require 'byebug'
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-
 # def gungeon
 #     url = 'https://gungeongod.com/'
 #     unparsed_page = HTTParty.get(url)
