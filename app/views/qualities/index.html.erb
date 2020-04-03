@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Qualitygrade</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,15 +13,11 @@
   <tbody>
     <% @qualities.each do |quality| %>
       <tr>
-        <td><%= quality.qualityGrade %></td>
+        <td><%= quality.name %></td>
         <td><%= link_to 'Show', quality %></td>
-        <td><%= link_to 'Edit', edit_quality_path(quality) %></td>
-        <td><%= link_to 'Destroy', quality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Quality', new_quality_path %>
