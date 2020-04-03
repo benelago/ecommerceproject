@@ -5,7 +5,7 @@ ActiveAdmin.register Quality do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :qualityGrade
+  permit_params :name, :quality_image
   #
   # or
   #
@@ -14,5 +14,15 @@ ActiveAdmin.register Quality do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+    # Formtastic
+    form do |f|
+      f.semantic_errors
+      f.inputs
+      f.inputs do
+        f.input :product_image, as: :file
+      end
+      f.actions
+    end
   
 end

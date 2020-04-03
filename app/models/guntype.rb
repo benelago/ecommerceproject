@@ -1,4 +1,4 @@
 class Guntype < ApplicationRecord
     has_many :products
-    validates :gunshottype, presence: true
+    validates :name, presence: true
 end

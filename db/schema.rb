@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_04_02_230713) do
   end
 
   create_table "guntypes", force: :cascade do |t|
-    t.string "gunshottype"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 2020_04_02_230713) do
   end
 
   create_table "qualities", force: :cascade do |t|
-    t.string "qualityGrade"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

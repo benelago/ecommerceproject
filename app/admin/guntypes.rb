@@ -5,7 +5,7 @@ ActiveAdmin.register Guntype do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :gunshottype
+  permit_params :name
   #
   # or
   #
