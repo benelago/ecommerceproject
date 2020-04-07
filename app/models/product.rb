@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  paginates_per 10
   belongs_to :guntype
   belongs_to :quality
   has_many :details
