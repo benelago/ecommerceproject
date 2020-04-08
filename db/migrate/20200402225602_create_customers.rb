@@ -3,7 +3,6 @@ class CreateCustomers < ActiveRecord::Migration[6.0]
     create_table :customers do |t|
       t.string :name
       t.string :address
-      t.string :email
       t.references :province, null: false, foreign_key: true
 
       t.timestamps
