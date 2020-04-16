@@ -2,6 +2,21 @@
 
 <h1>Products</h1>
 
+<p>You have visited <%= pluralize @visit_count, 'time' %></p>
+
+<details>
+  <summary>Shopping Cart</summary>
+  <% if @cart.empty? %>
+    <p>No items in cart.</p>
+  <% else %>
+    <ul>
+      <% @cart.each do |product|%>
+        <li><%=product.name %> - <%= link_to 'remove from cart', remove_from_cart_path(product), method: :delete %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</details>
+
 <% @products.each do |product| %>
 
 <div class="card" style="width: 18rem;">
@@ -13,11 +28,18 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Gun Type: <%= product.guntype.name %></li>
     <li class="list-group-item">Quality: <%= product.quality.name %></li>
-    <li class="list-group-item">Price: <%= product.price %></li>
+    <li class="list-group-item">Price: <%= number_to_currency product.price %></li>
 
   </ul>
   <div class="card-body">
     <a href="#" class="card-link"><%= link_to 'Show', product %></a>
+
+    <%if @cart.include?(product)%>
+      <p><%= button_to 'remove from cart', remove_from_cart_path(product), method: :delete %> </p>
+    <%else%>
+      <p><%= button_to 'add to cart', add_to_cart_path(product.id), method: :post %></p>
+    <%end%>
+
   </div>
 </div>
 
