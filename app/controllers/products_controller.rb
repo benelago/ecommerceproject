@@ -24,6 +24,19 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @search_term = params[:search_term]
+
+    @guntypes = params[:guntypes]
+
+    if @guntypes == ''
+      @products = Product.where('name like ?', "%#{@search_term}%").page params[:page]
+    else
+      @products = Product.where('name like ?', "%#{@search_term}%").where(guntype_id: @guntypes).page params[:page]
+    end
+
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show

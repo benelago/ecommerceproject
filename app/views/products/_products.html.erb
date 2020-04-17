@@ -1,0 +1,27 @@
+<% @products.each do |product| %>
+
+<div class="card" style="width: 18rem;">
+  <%= image_tag @product.product_image rescue nil %>
+  <div class="card-body">
+    <h5 class="card-title"><%= product.name %></h5>
+    <p class="card-text"><%= product.description %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Gun Type: <%= product.guntype.name %></li>
+    <li class="list-group-item">Quality: <%= product.quality.name %></li>
+    <li class="list-group-item">Price: <%= number_to_currency product.price %></li>
+
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link"><%= link_to 'Show', product %></a>
+
+    <%if @cart.include?(product)%>
+      <p><%= button_to 'remove from cart', remove_from_cart_path(product), method: :delete %> </p>
+    <%else%>
+      <p><%= button_to 'add to cart', add_to_cart_path(product.id), method: :post %></p>
+    <%end%>
+
+  </div>
+</div>
+
+<% end %>
