@@ -1,0 +1,11 @@
+<% if @guntypes == "" %>
+  <h1>Search results for "<%= @search_term %>"</h1>
+<% else %>
+  <h1>Search results for "<%= @search_term %>" in <%= @guntype_name %></h1>
+<% end %>
+
+<br>
+
+<%= render partial: 'guntypes', object: @guntypes, locals: {show_link: false} %>
+
+<%= paginate @guntypes %>

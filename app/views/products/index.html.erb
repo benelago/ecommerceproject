@@ -20,7 +20,7 @@
 <% @products.each do |product| %>
 
 <div class="card" style="width: 18rem;">
-  <img src="../assets/images/" class="card-img-top" alt="Item Image">
+  <%= image_tag @product.product_image rescue nil %>
   <div class="card-body">
     <h5 class="card-title"><%= product.name %></h5>
     <p class="card-text"><%= product.description %></p>

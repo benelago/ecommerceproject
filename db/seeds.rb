@@ -33,7 +33,12 @@ qualitygrades.each do |grade|
 end
 
 guns.each do |gun|
-  Product.create(guntype_id: Guntype.all.sample.id, quality_id: Quality.all.sample.id, name: gun[:name], description: gun[:description], price: rand(10..999))
+  product = Product.create(guntype_id: Guntype.random_records(1).first.id, quality_id: Quality.random_records(1).first.id, name: gun[:name], description: gun[:description], price: rand(10..999))
+
+  name = product.name
+
+  downloaded_image = open(URI.escape("https://source.unsplash.com/random/200x200"))
+  product.product_image.attach(io: downloaded_image, filename: "image-#{name}-extra.jpg")
 end
 
 puts "Created #{Tax.count} Taxes."
@@ -41,3 +46,4 @@ puts "Created #{Province.count} Provinces."
 puts "Created #{Quality.count} Qualities."
 puts "Created #{Guntype.count} Guntypes."
 puts "Created #{Product.count} Products."
+
