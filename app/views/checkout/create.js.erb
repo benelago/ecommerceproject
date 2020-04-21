@@ -1,0 +1,7 @@
+console.log('gitlog')
+
+var stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :publishable_key).strip! %>")
+
+stripe.redirectToCheckout({
+    sessionId: "<%= @session.id %>"
+}).then(result=>{console.log(result.error.message);})
