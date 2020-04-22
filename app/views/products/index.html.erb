@@ -13,7 +13,7 @@
       <% end %>
     </ul>
   <% end %>
-  <p><%= button_to 'Buy Now', checkout_create_path, params: {cart: @cart}, remote: true %></p>
+  <p><%= button_to 'Buy Now', checkout_create_path, params: {cart: @cart, id: current_customer.id}, remote: true %></p>
 </details>
 
 
